@@ -2,10 +2,12 @@ package ressources;
 
 import entities.UniteEnseignement;
 import metiers.UniteEnseignementBusiness;
+import filtres.Secured;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
 
 @Path("/UE")
 public class GestionUeRessources {
@@ -14,7 +16,7 @@ public class GestionUeRessources {
             new UniteEnseignementBusiness();
 
     // 1. Ajouter une UE
-
+    @Secured
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     public Response ajouterUE(UniteEnseignement ue) {
